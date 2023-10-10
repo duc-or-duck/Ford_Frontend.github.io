@@ -1,0 +1,294 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+@mixin size ($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+.dribble {
+    height: auto;
+    padding: 10px 80px;
+    .dribble--main {
+        &-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 110px;
+            &__background {
+                position: absolute;
+                z-index: 1;
+                bottom: 0;
+                right: 0;
+                transform: translateY(0%);
+                @include size(50rem, 35rem);
+            }
+            &-logo {
+                @include size(10rem, 8rem);
+            }
+            &__nav {
+                display: flex;
+                &>li {
+                    margin-left: 10px;
+                    padding: 10px 40px;
+                    color: #91725b;
+                    font-size: 15px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.5s linear;
+                    position: relative;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        display: flex;
+                        align-items: center;
+                        justify-items: center;
+                        @include size(100%);
+                        background-color: #4F6696;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        z-index: -1;
+                        filter: blur(5px);
+                        border-radius: 10px;
+                        opacity: 0;
+                        transition: all 0.25s linear;
+                    }
+                    &:hover {
+                        &:after {
+                            opacity: 1;
+                        }
+                        color: white;
+                    }
+                }
+            }
+            &__user {
+                &-icon {
+                    padding: 10px;
+                    margin-left: 5px;
+                    color: #91725b;
+                    cursor: pointer;
+                    position: relative;
+                    transition: all 0.25s linear;
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        display: flex;
+                        align-items: center;
+                        justify-items: center;
+                        @include size(100%);
+                        background-color: #4F6696;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        z-index: -1;
+                        filter: blur(5px);
+                        border-radius: 5px;
+                        opacity: 0;
+                        transition: all 0.25s linear;
+                    }
+                    &:hover {
+                        color: white;
+                        &:after {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+        &-content {
+            width: 50%;
+            margin-bottom: 60px;
+            &__caption {
+                font-size: 50px;
+                font-weight: bold;
+                line-height: 1.4;
+                margin-bottom: 50px;
+            }
+            &__subtitle {
+                font-size: 20px;
+                font-weight: 500;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+        }
+        &__button {
+            margin-bottom: 30px;
+            button {
+                @include size (10rem, 3rem);
+                background-color: #1DBBD6;
+                border: none;
+                border-radius: 50px;
+                cursor: pointer;
+                font-weight: bold;
+                white-space: 1rem;
+                box-shadow: 0px 5px 2px 0 black;
+                transition: all 0.25s linear;
+                &:hover {
+                    color: white;
+                    box-shadow: 0px 3px 0px 0 black;
+                }
+            }
+        }
+    }
+}
+
+.dribble--footer {
+    background-color: rgb(201, 248, 248);
+    padding: 5rem 0 2rem 0;
+    &__content {
+        width: 50%;
+        transform: translate(50%);
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        justify-content: space-between;
+        &-group {
+            span {
+                display: block;
+                text-align: center;
+                &:first-child {
+                    margin-bottom: 10px;
+                }
+                &:first-child,
+                &:nth-child(2) {
+                    font-size: 20px;
+                    color: black;
+                    font-weight: bold;
+                }
+                &:nth-child(3) {
+                    opacity: 0.6;
+                }
+            }
+        }
+    }
+}
